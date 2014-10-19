@@ -75,7 +75,8 @@ pair<double, string> expression(string a) {
       while(!(a[i] == ')' && parens == 0)) {
         if(a[i] == '(') {
           ++parens;
-        } else if(a[i] == ')') {
+        }
+        else if(a[i] == ')') {
           --parens;
         }
 
