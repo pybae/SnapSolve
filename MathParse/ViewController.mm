@@ -69,9 +69,12 @@
     UIImage *chosenImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImageOrientation orientation = chosenImage.imageOrientation;
     
+    cv::Size size(3, 3);
     cv::Mat cvImageMatrix = [self cvMatFromUIImage:chosenImage];
-    NSLog(@"UIImage - Row: %f Column: %f", chosenImage.size.width, chosenImage.size.height);
-    NSLog(@"CVMatrix - Row: %d Column: %d", cvImageMatrix.rows, cvImageMatrix.cols);
+    cv::cvtColor(cvImageMatrix, cvImageMatrix, CV_BGR2GRAY);
+    cv::GaussianBlur(cvImageMatrix, cvImageMatrix, size, 0);
+    cv::adaptiveThreshold(cvImageMatrix, cvImageMatrix, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY, 75, 10);
+    cv::bitwise_not(cvImageMatrix, cvImageMatrix);
     
     UIImage *cvImage = [self UIImageFromCVMat:cvImageMatrix orientation:orientation];
     
