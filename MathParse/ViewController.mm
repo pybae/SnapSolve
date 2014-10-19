@@ -80,9 +80,20 @@
     
     self.currentImageView = [[UIImageView alloc]initWithImage:cvImage];
     self.currentImageView.backgroundColor = [UIColor grayColor];
-    self.currentImageView.frame = CGRectMake(0, 0, cvImage.size.width * 0.15, cvImage.size.height * 0.15);
+    self.currentImageView.frame = CGRectMake(0, 0, cvImage.size.width, cvImage.size.height);
     self.currentImageView.center = CGPointMake(CGRectGetWidth(self.view.bounds) * 0.5, CGRectGetHeight(self.view.bounds) * 0.45);
     [self.view addSubview:self.currentImageView];
+    
+    Tesseract* tesseract = [[Tesseract alloc] initWithLanguage:@"eng"];
+    tesseract.delegate = self;
+    
+    [tesseract setVariableValue:@"0123456789" forKey:@"tessedit_char_whitelist"]; //limit search
+    [tesseract setImage:cvImage];
+    [tesseract recognize];
+    
+    NSLog(@"%@", [tesseract recognizedText]);
+    
+    tesseract = nil;
 }
 
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image
@@ -143,7 +154,7 @@
     
     
     // Getting UIImage from CGImage
-    UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:orientation];
+    UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:7.00 orientation:orientation];
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);

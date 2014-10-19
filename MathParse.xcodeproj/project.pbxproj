@@ -15,6 +15,7 @@
 		6458D28919F2F90E008D79BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6458D28819F2F90E008D79BB /* Images.xcassets */; };
 		6458D28C19F2F90E008D79BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6458D28A19F2F90E008D79BB /* LaunchScreen.xib */; };
 		6458D29819F2F90E008D79BB /* MathParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6458D29719F2F90E008D79BB /* MathParseTests.m */; };
+		64703D6819F3976E00260EB6 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 64703D6719F3976E00260EB6 /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		6458D29119F2F90E008D79BB /* MathParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6458D29619F2F90E008D79BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6458D29719F2F90E008D79BB /* MathParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathParseTests.m; sourceTree = "<group>"; };
+		64703D6719F3976E00260EB6 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = SOURCE_ROOT; };
 		88D42CA00F6A3919A8C4BD0C /* Pods-MathParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-MathParse/Pods-MathParse.release.xcconfig"; sourceTree = "<group>"; };
 		B54A66562DAD0BE26F1F20CB /* Pods-MathParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MathParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MathParse/Pods-MathParse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				6458D28219F2F90E008D79BB /* ViewController.h */,
 				6458D28319F2F90E008D79BB /* ViewController.mm */,
 				6458D28519F2F90E008D79BB /* Main.storyboard */,
+				64703D6719F3976E00260EB6 /* tessdata */,
 				6458D28819F2F90E008D79BB /* Images.xcassets */,
 				6458D28A19F2F90E008D79BB /* LaunchScreen.xib */,
 				6458D27B19F2F90E008D79BB /* Supporting Files */,
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6458D28719F2F90E008D79BB /* Main.storyboard in Resources */,
+				64703D6819F3976E00260EB6 /* tessdata in Resources */,
 				6458D28C19F2F90E008D79BB /* LaunchScreen.xib in Resources */,
 				6458D28919F2F90E008D79BB /* Images.xcassets in Resources */,
 			);
