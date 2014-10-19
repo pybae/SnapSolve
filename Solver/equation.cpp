@@ -54,6 +54,7 @@ string pop_all_ops(vector<double>& postfix, stack<char>& ops) {
 pair<double, string> expression(string a) {
   vector<double> postfix;
   stack<char> ops;
+  stack<char> trig;
   pair<double, string> temp_pair;
   string result = "";
 
@@ -67,7 +68,10 @@ pair<double, string> expression(string a) {
     // If we encounter an open parentheses, move through the string until we
     // find the matching closing parentheses. Recursively call expression()
     // on the substring and add the result to the postfix vector.
-    if(a[i] == '(') {
+    if(a[i] == 'c' || a[i] == 's' || a[i] == 't'){
+      trig.push(a[i]);
+    }
+    else if(a[i] == '(') {
       parens = 0;
       string sub = "";
       ++i;
@@ -82,11 +86,29 @@ pair<double, string> expression(string a) {
         sub += a[i];
         ++i;
       }
-      
-      temp_pair = expression(sub);
 
-      postfix.pop_back();
-      postfix.push_back(temp_pair.first);
+      temp_pair = expression(sub);
+      if(!trig.empty()){
+        char trigFun = trig.top();
+        if(trigFun == 'c'){
+          postfix.pop_back();
+          postfix.push_back(cos(temp_pair.first));
+        }
+        else if(trigFun == 's'){
+          postfix.pop_back();
+          postfix.push_back(sin(temp_pair.first));
+        }
+        else if(trigFun == 't'){
+          postfix.pop_back();
+          postfix.push_back(tan(temp_pair.first));
+        }
+      }
+      else{
+        postfix.pop_back();
+        postfix.push_back(temp_pair.first);
+      }
+
+
 
       result += temp_pair.second;
     }
