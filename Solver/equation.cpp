@@ -82,7 +82,18 @@ double expression(std::string a) {
   return postfix.back();
 }
 
-int main(int argc, char **argv) {
+int main() {
   // make the big switch statement here
-  std::cout << expression(argv[1]) << std::endl;
+  std::string input;
+
+  while(true) {
+    getline(std::cin, input);
+    if(!std::cin) {
+      break;
+    }
+
+    std::cout << expression(input) << std::endl;
+  }
+
+  return 0;
 }
